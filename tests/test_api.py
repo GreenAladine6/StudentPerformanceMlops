@@ -35,3 +35,14 @@ def test_prediction():
 
     assert data["prediction"] in [0, 1]
     assert data["result"] in ["Pass", "Fail"]
+
+
+
+
+def test_health():
+    response = client.get("/health")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "status": "healthy"
+    }

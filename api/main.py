@@ -46,3 +46,9 @@ def predict(student: StudentData):
         "prediction": int(prediction),
         "result": result
     }
+
+
+#health check endpoint
+@app.get("/health")
+def health():
+    return {"status": "healthy"}
