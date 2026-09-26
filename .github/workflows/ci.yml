@@ -10,8 +10,8 @@ on:
       - main
 
 jobs:
-  test:
 
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,3 +32,16 @@ jobs:
       - name: Run tests
         run: |
           python -m pytest
+
+
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build -t student-performance-api .
